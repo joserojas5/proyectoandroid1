@@ -1,22 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.registrarAsistencia.RegistrarAsistenciaFragment">
+    android:orientation="vertical"
+    tools:context=".ui.registrarAsistencia.RegistrarAsistenciaFragment"
+    android:padding="10dp">
 
     <TextView
-        android:id="@+id/text_registrar_asistencia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
+        android:text="Ingrese el codigo del docente:"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        />
+    <EditText
+        android:id="@+id/et_coddocente"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:ems="15"
+        android:maxLength="8"
+        />
+    <Button
+        android:id="@+id/btn_buscarDocente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BUSCAR"
+        android:layout_gravity="center"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre de docente:"
+        android:textSize="20sp"/>
+    <Spinner
+        android:id="@+id/spn_docente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hora de Asistencia: "
+        android:textSize="20sp"/>
+    <EditText
+        android:id="@+id/txt_tiempo"
+        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:ems="20"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="REGISTRAR"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

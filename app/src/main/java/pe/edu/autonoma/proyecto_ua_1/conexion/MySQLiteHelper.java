@@ -19,7 +19,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             "nombre text not null,"+
             " apellido text not null,"+
             " edad integer not null,"+
-            " dni text not null,"+
+            " dni text not null unique,"+
             " sexo text not null,"+
             " correo text not null,"+
             " telefono text not null);";

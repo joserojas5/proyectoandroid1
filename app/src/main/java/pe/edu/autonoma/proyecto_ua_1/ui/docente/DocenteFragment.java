@@ -32,11 +32,8 @@ public class DocenteFragment extends Fragment{
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        DocenteViewModel docenteViewModel =
-                new ViewModelProvider(this).get(DocenteViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_docente, container, false);
 
-        binding = FragmentDocenteBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
         lstDocentes = root.findViewById(R.id.lst_docentes);
         objDocenteDAO = new DocenteDAO(getContext());
         objDocenteDAO.open();
@@ -57,7 +54,8 @@ public class DocenteFragment extends Fragment{
 
         list = objDocenteDAO.listadoPersonas();
         for (DocenteBean obj:list) {
-            acum.add("Nombre: " + obj.getNombre()+ obj.getApellido() +"\n"+
+            acum.add("id: " + obj.getId() + "\n" +
+                    "Nombre: " + obj.getNombre()+ obj.getApellido() +"\n"+
                     "DNI: "+obj.getDni() + "\n" +
                     "Edad: "+ obj.getEdad() + "\n"+
                     "Sexo: " + obj.getSexo() + "\n" +
@@ -67,12 +65,5 @@ public class DocenteFragment extends Fragment{
 
         }
 
-
     }
-
-
-
-
-
-
 }

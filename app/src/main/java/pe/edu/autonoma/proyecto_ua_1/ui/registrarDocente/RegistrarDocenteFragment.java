@@ -25,9 +25,9 @@ import pe.edu.autonoma.proyecto_ua_1.databinding.FragmentHomeBinding;
 import pe.edu.autonoma.proyecto_ua_1.databinding.FragmentRegistrarDocenteBinding;
 import pe.edu.autonoma.proyecto_ua_1.models.DocenteBean;
 import pe.edu.autonoma.proyecto_ua_1.models.DocenteDAO;
-import pe.edu.autonoma.proyecto_ua_1.ui.home.HomeViewModel;
+import pe.edu.autonoma.proyecto_ua_1.ui.docente.DocenteFragment;
 
-public class RegistrarDocenteFragment extends Fragment implements View.OnClickListener{
+public class RegistrarDocenteFragment extends Fragment implements View.OnClickListener {
 
     private FragmentRegistrarDocenteBinding binding;
     DocenteBean objDocenteBean;
@@ -42,18 +42,16 @@ public class RegistrarDocenteFragment extends Fragment implements View.OnClickLi
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        RegistrarDocenteViewModel registrarDocenteViewModel =
-                new ViewModelProvider(this).get(RegistrarDocenteViewModel.class);
 
-        binding = FragmentRegistrarDocenteBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+        View root = inflater.inflate(R.layout.fragment_registrar_docente, container, false);
+
 
         spnSexo = root.findViewById(R.id.spn_sexo);
         opcSexo = new ArrayList<>();
         opcSexo.add("-Selecciona genero-");
         opcSexo.add("Femenino");
         opcSexo.add("Masculino");
-        adapter = new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1, opcSexo);
+        adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, opcSexo);
         spnSexo.setAdapter(adapter);
 
         //EditText
@@ -75,9 +73,9 @@ public class RegistrarDocenteFragment extends Fragment implements View.OnClickLi
     @Override
     public void onClick(View view) {
         seleccionarSexo();
-        if(view == btnRegistrar && valorSpinner != null){
+        if (view == btnRegistrar && valorSpinner != null) {
             registarDBDocente();
-        }else{
+        } else {
             Toast.makeText(getContext(), "Falta sexo", Toast.LENGTH_SHORT).show();
         }
 
@@ -89,8 +87,9 @@ public class RegistrarDocenteFragment extends Fragment implements View.OnClickLi
         super.onDestroyView();
         binding = null;
     }
-    public void seleccionarSexo(){
-        switch (spnSexo.getSelectedItemPosition()){
+
+    public void seleccionarSexo() {
+        switch (spnSexo.getSelectedItemPosition()) {
             case 0:
                 valorSpinner = null;
                 break;
@@ -103,39 +102,61 @@ public class RegistrarDocenteFragment extends Fragment implements View.OnClickLi
 
         }
     }
-    public void registarDBDocente(){
+
+    public void registarDBDocente() {
         seleccionarSexo();
         String nombre = etNombre.getText().toString();
         String apellido = etApellido.getText().toString();
-        String edad =etEdad.getText().toString();
+        String edad = etEdad.getText().toString();
         String sexo = valorSpinner;
         String dni = etDni.getText().toString();
         String correo = etCorreo.getText().toString();
         String telefono = etTelefono.getText().toString();
-        objDocenteBean = new DocenteBean();
-        objDocenteBean.setNombre(nombre);
-        objDocenteBean.setApellido(apellido);
-        objDocenteBean.setEdad(Integer.parseInt(edad));
-        objDocenteBean.setDni(dni);
-        objDocenteBean.setSexo(sexo);
-        objDocenteBean.setCorreo(correo);
-        objDocenteBean.setTelefono(telefono);
-        long estado = objDocenteDAO.insertar(objDocenteBean);//falla de conexion
+        long estado = 0;
+        if (verificarDni(dni) == false){
+            objDocenteBean = new DocenteBean();
+            objDocenteBean.setNombre(nombre);
+            objDocenteBean.setApellido(apellido);
+            objDocenteBean.setEdad(Integer.parseInt(edad));
+            objDocenteBean.setDni(dni);
+            objDocenteBean.setSexo(sexo);
+            objDocenteBean.setCorreo(correo);
+            objDocenteBean.setTelefono(telefono);
+
+            estado = objDocenteDAO.insertar(objDocenteBean);//falla de conexion
+        }
+
         if (estado == 0) {
-            Toast.makeText(getContext(), "Registro No Insertado", Toast.LENGTH_SHORT).show();
-        }else {
+            Toast.makeText(getContext(), "Registro No Insertado\nEl DNI ya se encuentra vinculado", Toast.LENGTH_SHORT).show();
+        } else {
             Toast.makeText(getContext(), "Registro Insertado", Toast.LENGTH_SHORT).show();
             limpiarET();
         }
 
 
     }
-    public void limpiarET(){
+
+    public void limpiarET() {
         etNombre.setText("");
         etApellido.setText("");
         etEdad.setText("");
         etDni.setText("");
         etCorreo.setText("");
         etTelefono.setText("");
+    }
+
+    public Boolean verificarDni(String dni) {
+        Boolean estado = false;
+        String acum;
+        ArrayList<DocenteBean> list;
+
+        list = objDocenteDAO.listadoPersonas();
+        for (DocenteBean obj : list) {
+            acum = obj.getDni();
+            if (acum.equals(dni)){
+                estado = true;
+            }
+        }
+        return estado;
     }
 }
