@@ -34,6 +34,9 @@ public class ListaAsistenciasFragment extends Fragment {
         lstAsistenciasDocentes = root.findViewById(R.id.lst_asistencias_docentes);
         objAsistenciaDAO = new AsistenciaDAO(getContext());
         objAsistenciaDAO.open();
+        objDocenteDAO = new DocenteDAO(getContext());
+        objDocenteDAO.open();
+
         llenarListaDocentes();
         arrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, acum);
         lstAsistenciasDocentes.setAdapter(arrayAdapter);
@@ -43,17 +46,36 @@ public class ListaAsistenciasFragment extends Fragment {
     public void llenarListaDocentes(){
               acum = new ArrayList<>();
               ArrayList<AsistenciaBean> list;
+              ArrayList<DocenteBean> list2;
               list = objAsistenciaDAO.listadoAsistencia();
+              list2 = objDocenteDAO.listadoPersonas();
+              for (int i = list.size()-1; i>=0 ; i--) {
+                  AsistenciaBean obj = list.get(i);
+                  for (DocenteBean obj2:list2) {
+                      if(obj2.getId() == obj.getIdDocente()){
+                          acum.add("id: " + obj.getId() + "\n" +
+                                  "DNI: " + obj2.getDni() + "\n"+
+                                  "nombre de docente: " + obj2.getNombre()+" "+obj2.getApellido()+"\n" +
+                                  "Fecha de registro: " + obj.getFechaAsistencia());
+                      }
+                  }
+              }
+              /*
               for (AsistenciaBean obj:list) {
-
-                  acum.add("id: " + obj.getId() + "\n" +
-                          "idDocente: " + obj.getIdDocente()+"\n" +
-                          "Fecha de registro: " + obj.getFechaAsistencia());
-
-             }
+                  for (DocenteBean obj2:list2) {
+                      if(obj2.getId() == obj.getIdDocente()){
+                          acum.add("id: " + obj.getId() + "\n" +
+                                  "DNI: " + obj2.getDni() + "\n"+
+                                  "nombre de docente: " + obj2.getNombre()+" "+obj2.getApellido()+"\n" +
+                                  "Fecha de registro: " + obj.getFechaAsistencia());
+                      }
+                  }
+             }*/
      }
     @Override
      public void onDestroyView() {
+        objAsistenciaDAO.close();
+        objDocenteDAO.close();
         super.onDestroyView();
      }
 
