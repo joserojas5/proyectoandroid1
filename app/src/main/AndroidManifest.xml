@@ -9,9 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Proyectoua1">
-        <activity
-            android:name=".OpcionesDocenteActivity"
-            android:exported="false" />
 
         <activity
             android:name=".MainActivity"
