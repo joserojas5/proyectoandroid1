@@ -21,6 +21,7 @@
         android:layout_height="wrap_content"
         android:ems="15"
         android:maxLength="8"
+        android:inputType="number"
         />
     <Button
         android:id="@+id/btn_buscarDocente"

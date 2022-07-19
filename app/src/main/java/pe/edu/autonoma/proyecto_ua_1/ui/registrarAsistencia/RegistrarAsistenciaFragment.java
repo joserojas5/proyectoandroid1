@@ -40,6 +40,7 @@ public class RegistrarAsistenciaFragment extends Fragment implements View.OnClic
     EditText txtTiempo;
     TextView tvNombreApellidoDocente;
     Button btnRegistrarAsistencia;
+    Boolean busquedaDocente = false;
 
     private int id;
 
@@ -80,6 +81,7 @@ public class RegistrarAsistenciaFragment extends Fragment implements View.OnClic
             if (codDocente.equals(obj.getDni())){
                 tvNombreApellidoDocente.setText(obj.getNombre() +" "+ obj.getApellido());
                 id = obj.getId();
+                busquedaDocente = true;
             }
         }
     }
@@ -91,7 +93,7 @@ public class RegistrarAsistenciaFragment extends Fragment implements View.OnClic
             String strCodDocente = etCodDocente.getText().toString();
             buscarDocente(strCodDocente);
         }
-        if(view == btnRegistrarAsistencia){
+        if(view == btnRegistrarAsistencia && busquedaDocente == true){
             registarDBDocente();
         }
     }
@@ -102,7 +104,7 @@ public class RegistrarAsistenciaFragment extends Fragment implements View.OnClic
         long estado = 0;
 
         objAsistenciaBean = new AsistenciaBean();
-        objAsistenciaBean.setIdDocente(id);
+        objAsistenciaBean.setIdDocente(idDocente);
         objAsistenciaBean.setFechaAsistencia(tiempo);
 
         estado = objAsistenciaDAO.insertar(objAsistenciaBean);//falla de conexion

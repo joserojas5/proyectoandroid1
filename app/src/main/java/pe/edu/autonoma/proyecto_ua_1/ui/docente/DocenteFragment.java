@@ -49,10 +49,7 @@ public class DocenteFragment extends Fragment{
         return root;
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-    }
+
     public void llenarListaDocentes(){
         acum = new ArrayList<>();
         ArrayList<DocenteBean> list;
@@ -70,5 +67,10 @@ public class DocenteFragment extends Fragment{
 
 
         }
+    }
+    @Override
+    public void onDestroyView() {
+        objDocenteDAO.close();
+        super.onDestroyView();
     }
 }
