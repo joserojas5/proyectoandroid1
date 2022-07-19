@@ -20,6 +20,10 @@
             android:id="@+id/nav_asistencia"
             android:icon="@drawable/ic_baseline_asistencia"
             android:title="@string/menu_registrar_asistencia" />
+        <item
+            android:id="@+id/nav_lista_asistencia"
+            android:icon="@drawable/ic_lista_asistencias"
+            android:title="@string/menu_lista_asistencias" />
 
 
 

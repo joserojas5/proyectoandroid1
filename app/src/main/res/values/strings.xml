@@ -5,12 +5,13 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_salir">Cerrar sesión</string>
 
     <string name="menu_home">Home</string>
     <string name="menu_docente">Docentes</string>
     <string name="menu_registrar_docente">Registrar docente</string>
     <string name="menu_registrar_asistencia">Registrar asistencia</string>
+    <string name="menu_lista_asistencias">Listar asistencias</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

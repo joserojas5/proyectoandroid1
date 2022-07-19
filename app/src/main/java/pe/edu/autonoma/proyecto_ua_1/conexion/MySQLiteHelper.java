@@ -31,7 +31,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                     "foreign key(id_docente) references " + NOMBRE_TABLA1 + "(id));";
 
 
-
     public MySQLiteHelper( Context context) {
 
         super(context, NOMBRE_BASEDATOS, null, VERSION);

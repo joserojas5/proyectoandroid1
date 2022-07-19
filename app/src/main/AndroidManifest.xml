@@ -10,13 +10,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Proyectoua1">
         <activity
-            android:name=".ui.docente.MainActivity2"
+            android:name=".OpcionesDocenteActivity"
             android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Proyectoua1.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LoginActivity" />
+        </activity>
+
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

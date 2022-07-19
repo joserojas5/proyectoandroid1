@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#0B0808"
-    android:orientation="vertical"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.listaAsistencias.ListaAsistenciasFragment">
 
-
+    <ListView
+        android:id="@+id/lst_asistencias_docentes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

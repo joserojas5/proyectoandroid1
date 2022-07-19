@@ -84,8 +84,8 @@ public class RegistrarDocenteFragment extends Fragment implements View.OnClickLi
 
     @Override
     public void onDestroyView() {
+        objDocenteDAO.close();
         super.onDestroyView();
-        binding = null;
     }
 
     public void seleccionarSexo() {

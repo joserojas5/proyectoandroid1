@@ -33,10 +33,12 @@
         android:layout_height="wrap_content"
         android:text="Nombre de docente:"
         android:textSize="20sp"/>
-    <Spinner
-        android:id="@+id/spn_docente"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/tv_nombre_apellido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="20sp"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -49,6 +51,7 @@
         android:ems="20"
         />
     <Button
+        android:id="@+id/btn_registrarAsistencia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="REGISTRAR"

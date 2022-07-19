@@ -4,22 +4,27 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/joses/AndroidStudioProjects/proyectoua1/app/src/main/res/drawable/ic_launcher_background.xml" value="0.144" />
+        <entry key="..\:/Users/joses/AndroidStudioProjects/proyectoua1/app/src/main/res/drawable/ic_lista_asistencias.xml" value="0.128" />
+        <entry key="..\:/Users/joses/AndroidStudioProjects/proyectoua1/app/src/main/res/drawable/ic_menu_home.xml" value="0.128" />
         <entry key="..\:/Users/joses/AndroidStudioProjects/proyectoua1/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.144" />
         <entry key="..\:/Users/joses/AndroidStudioProjects/proyectoua1/app/src/main/res/drawable/side_nav_bar.xml" value="0.144" />
+        <entry key="..\:/Users/joses/AndroidStudioProjects/proyectoua1/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Users/joses/AndroidStudioProjects/proyectoua1/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/joses/AndroidStudioProjects/proyectoua1/app/src/main/res/layout/activity_opciones_docente.xml" value="0.19" />
         <entry key="..\:/Users/joses/AndroidStudioProjects/proyectoua1/app/src/main/res/layout/app_bar_main.xml" value="0.182518115942029" />
         <entry key="..\:/Users/joses/AndroidStudioProjects/proyectoua1/app/src/main/res/layout/content_main.xml" value="0.22604166666666667" />
         <entry key="..\:/Users/joses/AndroidStudioProjects/proyectoua1/app/src/main/res/layout/docente_fragment.xml" value="0.22604166666666667" />
         <entry key="..\:/Users/joses/AndroidStudioProjects/proyectoua1/app/src/main/res/layout/fragment_docente.xml" value="0.20104166666666667" />
         <entry key="..\:/Users/joses/AndroidStudioProjects/proyectoua1/app/src/main/res/layout/fragment_gallery.xml" value="0.22604166666666667" />
         <entry key="..\:/Users/joses/AndroidStudioProjects/proyectoua1/app/src/main/res/layout/fragment_home.xml" value="0.18" />
+        <entry key="..\:/Users/joses/AndroidStudioProjects/proyectoua1/app/src/main/res/layout/fragment_lista_asistencias.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/joses/AndroidStudioProjects/proyectoua1/app/src/main/res/layout/fragment_registrar_asistencia.xml" value="0.2" />
         <entry key="..\:/Users/joses/AndroidStudioProjects/proyectoua1/app/src/main/res/layout/fragment_registrar_docente.xml" value="0.16" />
         <entry key="..\:/Users/joses/AndroidStudioProjects/proyectoua1/app/src/main/res/layout/fragment_slideshow.xml" value="0.22604166666666667" />
         <entry key="..\:/Users/joses/AndroidStudioProjects/proyectoua1/app/src/main/res/layout/nav_header_main.xml" value="0.22604166666666667" />
         <entry key="..\:/Users/joses/AndroidStudioProjects/proyectoua1/app/src/main/res/layout/registrar_docente_fragment.xml" value="0.22604166666666667" />
         <entry key="..\:/Users/joses/AndroidStudioProjects/proyectoua1/app/src/main/res/menu/activity_main_drawer.xml" value="0.22604166666666667" />
-        <entry key="..\:/Users/joses/AndroidStudioProjects/proyectoua1/app/src/main/res/menu/main.xml" value="0.22604166666666667" />
+        <entry key="..\:/Users/joses/AndroidStudioProjects/proyectoua1/app/src/main/res/menu/main.xml" value="0.12931034482758622" />
       </map>
     </option>
   </component>
